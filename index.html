@@ -8,6 +8,7 @@
         * {
             margin: 0;
             padding: 0;
+            height: 100%;
             box-sizing: border-box;
         }
 
@@ -17,24 +18,15 @@
             overflow: hidden;
         }
 
-        .parallax-container {
-            position: relative;
-            height: 100vh;
+        .parallax {
             background-image: url('images/Gamma-ray_sky1.png');
-            transform: scale(1.1);
-            background-size: cover;
+            height: 100%;
+            background-attachment: fixed;
             background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
             transition: background-position 0.1s ease-out;
-        }
-
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            z-index: 2;
         }
 
         .container {
@@ -49,25 +41,26 @@
         p {
             color: #a67d55;
         }
-        
-</script>
+    <\style>
 </head>
+
+
 <body>
-    <script>
-            document.addEventListener('mousemove', (e) => {
-                const x = e.clientX;
-                const y = e.clientY;
-                const width = window.innerWidth;
-                const height = window.innerHeight;
-
-                const moveX = (x / width - 0.5) * 50;  // Move the background based on mouse position
-                const moveY = (y / height - 0.5) * 50;
-
-                document.querySelector('.parallax-container').style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
-            });
-    </script>
-    <div class="container">
-        <h1>Douglas Carlos</h1>
+    <div class="parallax">
+        <div class="container">
+            <h1>Douglas Carlos</h1>
+        </div>
     </div>
+
+    <script>
+        // JavaScript
+        document.addEventListener('mousemove', function(e) {
+            const parallax = document.querySelector('.parallax');
+            const x = (window.innerWidth - e.pageX * 8) / 100;
+            const y = (window.innerHeight - e.pageY * 8) / 100;
+            parallax.style.backgroundPosition = x + 'px ' + y + 'px';
+        });
+    </script>
+    
 </body>
 </html>
