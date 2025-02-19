@@ -6,24 +6,22 @@
     <title>Douglas Carlos</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
-
-        .parallax {
             background-image: url('images/Gamma-ray_sky1.png');
-            height: 100%;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
             background-size: cover;
-            position: relative;
-            transition: background-position 0.1s ease-out;
+            transform: scale(1.1); /* Enlarges the background */
+            background-position: 50% 50%;  /* Default position */
+            transition: background-position 0.1s ease-out; /* Smooth effect */
+            
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            margin: 0;
+            text-align: center;
         }
-
         .container {
             background: #060112;
             padding: 30px;
@@ -36,26 +34,11 @@
         p {
             color: #a67d55;
         }
-    <\style>
+    </style>
 </head>
-
-
 <body>
-    <div class="parallax">
-        <div class="container">
-            <h1>Douglas Carlos</h1>
-        </div>
+    <div class="container">
+        <h1>Douglas Carlos</h1>
     </div>
-
-    <script>
-        // JavaScript
-        document.addEventListener('mousemove', function(e) {
-            const parallax = document.querySelector('.parallax');
-            const x = (window.innerWidth - e.pageX * 8) / 100;
-            const y = (window.innerHeight - e.pageY * 8) / 100;
-            parallax.style.backgroundPosition = x + 'px ' + y + 'px';
-        });
-    </script>
-    
 </body>
 </html>
